@@ -1,0 +1,701 @@
+ <!DOCTYPE html>
+     <html>
+     
+     <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link rel="icon" href="./static/favicon.ico">
+       <title></title>
+       <style type="text/css">
+        body {
+          margin: 0;
+          padding: 0;
+        }
+     
+         body::-webkit-scrollbar {
+           width: 0;
+           height: 0;
+         }
+     
+         .head-top {
+           position: fixed;
+           top: 0;
+           z-index: 99;
+           width: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           height: 80px;
+           background: #ffffff;
+         }
+     
+         .head-top .head-top-1 {
+           top: 0;
+           z-index: 99;
+           width: 100%;
+           display: flex;
+           align-items: center;
+           color: #FFF;
+           position: fixed;
+           height: 80px;
+           justify-content: space-between;
+           background: var(--head-bg-color);
+           box-shadow: 0px 0px 10px 0px rgba(23, 27, 32, 0.05);
+         }
+     
+         .head-top .head-top-1 .logo {
+           width: 20%;
+         }
+     
+         .head-top .head-top-1 .logo .logo-img {
+           margin-left: 0px;
+         }
+     
+         .head-top .head-top-1 .logo:hover {
+           cursor: pointer;
+         }
+     
+         .head-top .head-top-1 .app-all {
+           display: none;
+         }
+     
+         .head-top .head-top-1 .menu {
+           width: 60%;
+           height: 100%;
+           z-index: 999;
+         }
+     
+         .head-top .head-top-1 .menu ul {
+           padding: 0;
+           margin: 0;
+           list-style: none;
+           display: flex;
+           justify-content: space-evenly;
+           height: 100%;
+         }
+     
+         .head-top .head-top-1 .menu ul li {
+           color: var(--head-color);
+           font-size: 16px;
+           height: 100%;
+           line-height: 80px;
+           display: flex;
+           align-items: center;
+         }
+     
+         .head-top .head-top-1 .menu ul li a {
+           color: #333333;
+           text-decoration: none;
+         }
+     
+         .head-top .head-top-1 .menu ul li .cloudimg {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         }
+     
+         .head-top .head-top-1 .menu ul li.is-active {
+           background: transparent;
+           border-bottom: none;
+           color: #4294f2;
+         }
+     
+         .head-top .head-top-1 .menu ul li a:hover {
+           background: transparent;
+           cursor: pointer;
+           color: #4294f2;
+         }
+     
+         .head-top .head-top-1 .search {
+           width: 20%;
+         }
+     
+         .head-top .app-menu {
+           position: absolute;
+           right: 0;
+           left: 0;
+           top: 59px;
+           max-height: calc(100vh - 176px);
+           overflow: auto;
+           background-color: #ffffff;
+         }
+     
+         .head-top .app-menu ul {
+           padding: 0;
+           margin: 0;
+           list-style: none;
+           height: 100%;
+         }
+     
+         .head-top .app-menu ul li {
+           padding: 20px;
+           color: var(--head-color);
+           font-size: 14px;
+           height: 100%;
+           line-height: 28px;
+           /* display: flex; */
+           align-items: center;
+         }
+     
+         .head-top .app-menu ul li a {
+           color: #333333;
+           text-decoration: none;
+         }
+     
+         .head-top-hide {
+           opacity: 0;
+           height: 79px;
+           position: relative;
+           z-index: 1;
+           background: var(--head-bg-color);
+         }
+     
+         .topshow {
+           position: relative;
+         }
+     
+         .topshow img {
+           width: 100%;
+         }
+     
+         .topshow p {
+           position: absolute;
+           left: 15%;
+           top: 5%;
+           color: white;
+           font-size: 14px;
+         }
+     
+         .topshow p:hover {
+           cursor: pointer;
+         }
+     
+         @media all and (max-width: 912px) {
+           .head-top {
+             height: 45px;
+             padding: 7.5px 5px;
+             background: #f5f8f9;
+           }
+     
+           .head-top .head-top-1 {
+             justify-content: space-between;
+             height: 45px;
+             padding: 7.5px 5px;
+           }
+     
+           .head-top .head-top-1 .logo {
+             width: auto;
+           }
+     
+           .head-top .head-top-1 .logo .logo-img {
+             display: none;
+           }
+     
+           .head-top .head-top-1 .app-all {
+             display: flex;
+             justify-content: flex-end;
+             width: 100%;
+           }
+     
+           .head-top .head-top-1 .app-all .app-img {
+             width: 35px;
+             margin-right: 10px;
+             height: 35px;
+           }
+     
+           .head-top .head-top-1 .search {
+             width: 0%;
+           }
+     
+           .head-top .head-top-1 .menu {
+             display: none;
+           }
+     
+           .head-top .head-top-1 .search {
+             width: 0%;
+           }
+     
+           .head-top .app-menu {
+             position: absolute;
+             right: 0;
+             left: 0;
+             top: 59px;
+             max-height: calc(100vh - 176px);
+             overflow: auto;
+           }
+     
+           .head-top-hide {
+             opacity: 0;
+             height: 60px;
+             position: relative;
+             z-index: 1;
+           }
+         }
+     
+         .tabsBox {
+           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+         }
+     
+         .tabsBox .tabs {
+           width: 50%;
+           margin: 0 auto;
+         }
+  
+         .menuContent {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 80px;
+          }
+
+          .items {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #FFFFFF;
+            padding: 30px 20%;
+            font-size: 16px;
+          }
+
+          .item {
+            cursor: pointer;
+          }
+
+          .item a:not(:hover) {
+            color: black;
+          }
+          .item a:hover {
+            color: #4294f2;
+          }
+
+          .noColor {
+            color: #333333 !important;
+            cursor: default !important;
+          }
+
+          .main {
+            position: relative;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: flex-start;
+              flex-wrap: wrap;
+            padding: 0.2em 12% 2em 12%;
+            font-size: 15px;
+          }
+
+          .jjfamainItem {
+            width: 25%;
+          }
+
+          .rjcpmainItem {
+            width: 33%;
+          }
+
+          .mainItemTitle {
+            font-size: 16px;
+            margin: 0 0;
+            padding: 15px 0;
+            border-bottom: rgb(235,236,237) solid 2px;
+            width: 80%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+          }
+
+          .mainItemTitle a:not(:hover) {
+            color: black;
+          }
+          .mainItemTitle a:hover {
+            color: #4294f2;
+          }
+
+          .mainConBox {
+            padding: 0;
+            margin: 0;
+            width: 50%;
+            -moz-column-gap: 12px;
+            -moz-column-count: 1;
+            -webkit-column-gap: 12px;
+            -webkit-column-count: 1;
+            column-gap: 12px;
+            column-count: 1;
+          }
+
+          .jjfaBox .mainContent {
+            height: 30px;
+            line-height: 30px;
+            list-style: none;
+            color: #666666;
+            cursor: pointer;
+            font-size: 14px;
+          }
+
+          .jjfaBox .mainContent a:not(:hover) {
+              color: black;
+          }
+          .jjfaBox .mainContent a:hover {
+              color: #4294f2;
+          }
+
+          .jjfaheight {
+            height: 180px;
+          }
+
+          .rjcpBox .mainContent {
+            height: 30px;
+            line-height: 30px;
+            list-style: none;
+            color: #666666;
+            cursor: pointer;
+            font-size: 14px;
+          }
+
+          .rjcpBox .mainContent a:not(:hover) {
+            color: black;
+          }
+          .rjcpBox .mainContent a:hover {
+            color: #4294f2;
+          }
+
+          .rjcpheight {
+            height: 150px;
+          }
+
+          .button {
+            position: absolute;
+            bottom: 1em;
+            right: 12%;
+            padding: 0.4em;
+            height: 10px;
+            color: #4294f2;
+            border: solid 1px #4294f2;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+          }
+          @keyframes moveIn {
+            0%{
+              top: 80px;
+              display: none;
+              transform: translateY(-100%);
+            }
+            100%{
+              top: 80px;
+              display: block;
+              transform: translateY(0px);
+            }
+          }
+
+          @keyframes moveOut {
+            from{
+              top: 80px;
+              display: block;
+              transform: translateY(0px);
+            }
+            to{
+              top: -80px;
+              display: none;
+              transform: translateY(-100%);
+            }
+          }
+
+          .showContent {
+            display: block;
+            animation:moveIn 5s;
+            z-index: 98;
+          }
+
+          .hidContent {
+            display: none;
+            animation: moveOut 5s;
+          }
+
+          .initContent {
+            display: none;
+            top: -80px;
+          }
+
+          .navli{
+            position: relative;
+            padding: 0 0;
+          }
+          li.is-active span::after{
+            width: 100%;
+          }
+          .navli span:hover::after{
+            width: 100%;
+          }
+          .navli span::after{
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4294f2;
+            height: 3px;
+            width: 0;
+            transition-duration: 0.5s;
+          }
+       </style>
+     </head>
+     
+     <body>
+      <div class="head-top" id="head">
+        <div class="head-top-1">
+          <div class="logo">
+            <a href="http://#/Index">
+              <img src="static/img/home/logo_nor.png" alt="" class="logo-img" id="pclogo">
+              <img src="static/img/home/logoapp.png" alt="" class="app-all" id="applogo">
+            </a>
+          </div>
+          <div class="app-all">
+            <img id="openAppMenu" class="app-img" src="static/img/home/menu-app.png" />
+            <img id="closeAppMenu" class="app-img" src="static/img/home/appclose.png" />
+          </div>
+          <div class="menu">
+          <ul id="menu">
+            <li id="yzt"><a
+                href="http://"></a><img
+                src="static/img/home/yzt_nor.png" alt="" class="cloudimg"></li>
+          </ul>
+          </div>
+          <div class="search"></div>
+        </div>
+        <div id="app-menu" class="app-menu">
+          <ul id="app-menu-ul"></ul>
+        </div>
+        <div class="menuContent initContent" id="showMenuU">
+        <div onmouseover="mouseEnterMenuU()" onmouseout="mouseMove()">
+          <div class="items" id="itemsMenuU"></div>
+        </div>
+      </div>
+      <div class="menuContent initContent" id="showMenu">
+        <div id="main" class="main" onmouseover="mouseEnterMenu()" onmouseout="mouseMove()"></div>
+      </div>
+      </div>
+      <div class="head-top-hide"></div>
+      <div class="topshow" id="topshow">
+        <img id="bannerImg">
+        <p id="bannerRoute"></p>
+      </div>
+      <div class="content_box" id="content_box">
+        <div class="tabsBox" id="tabsBox">
+          <div class="tabs">
+            <ul id="tabs"></ul>
+          </div>
+        </div>
+      </div>
+
+       </div>
+       <script type="text/javascript">
+         const screenwidth = (window.innerWidth > 912) ? 'pc' : 'app'
+         // top
+         var openAppMenu = document.getElementById('openAppMenu')
+         openAppMenu.style.display = 'inline'
+         openAppMenu.addEventListener('click', () => clickAppIcon())
+         var closeAppMenu = document.getElementById('closeAppMenu')
+         closeAppMenu.style.display = 'none'
+         closeAppMenu.addEventListener('click', () => clickAppIcon())
+         var appMenu = document.getElementById('app-menu')
+         appMenu.style.display = 'none'
+         var showAppMenu = false
+         function clickAppIcon() {
+           showAppMenu = !showAppMenu
+           if (!showAppMenu) {
+             openAppMenu.style.display = 'inline'
+             closeAppMenu.style.display = 'none'
+             appMenu.style.display = 'none'
+           }
+           else {
+             openAppMenu.style.display = 'none'
+             closeAppMenu.style.display = 'inline'
+             appMenu.style.display = 'block'
+           }
+         }
+        var menuList = [
+          {keyname: 'jjfa', name: 'jjfa', namec: 'xxxx', href: "http://#/Solution", children:[{keyname: 'zhdz', name: 'zhdz', namec: 'xxxx', href: "", children:[{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""}]}]},
+          {keyname: 'rjcp', name: 'rjcp', namec: 'xxxx', href:"http://#/ProductCenter", children:[{keyname: 'hycp', name: 'hycp', namec: 'xxxx', children:[{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""},{keyname: 'xxxx', name: 'xxxx', namec: 'xxxx', href: ""}]}]},
+          {keyname: 'fwzc', name: 'fwzc', namec: 'xxxx', href:"http://#/MarketingSupport", children:[{keyname: 'zyzx', name: 'zyzx', namec: 'xxxx', href: ""}]},
+          {keyname: 'xwzx', name: 'xwzx', namec: 'xxxx', href:"http://#/NewsCenter"},
+          {keyname: 'gywm', name: 'gywm', namec: 'xxxx', href:"http://#/Intro", children:[{keyname: 'gsjj', name: 'gsjj', namec: 'xxxx', href: ""}]},
+        ]
+        var menu = document.getElementById('menu')
+        var yzt = document.getElementById('yzt')
+        var appMenuUl = document.getElementById('app-menu-ul')
+        menuList.forEach(item =>
+        {
+          var menuli = document.createElement('li')
+          var menuspan = document.createElement('span')
+          var menua = document.createElement('a')
+          menua.href = item.href
+          menua.innerText = item.namec
+          menuspan.appendChild(menua)
+          menuli.appendChild(menuspan)
+          menuli.addEventListener('mouseover', ()=>mouseEnter(item))
+          menuli.addEventListener('mouseout', ()=>mouseMove())
+          menuli.className = 'navli'
+          menu.insertBefore(menuli, yzt)
+          var li_i = document.createElement('li')
+          li_i.innerText = item.namec
+          var div_j = document.createElement('div')
+          div_j.style.display = 'none'
+          li_i.appendChild(div_j)
+          li_i.onclick = ()=>div_j.style.display='block'
+          appMenuUl.appendChild(li_i)
+          if(item.children)
+          {
+            item.children.forEach(j =>
+            {
+              var li_j = document.createElement('li')
+              li_j.innerText = j.namec
+              li_j.style.paddingBottom = 0
+              var a_j = document.createElement('a')
+              a_j.href = j.href
+              a_j.innerText = j.namec
+              li_j.appendChild(a_j)
+              var div_k = document.createElement('div')
+              div_k.style.display = 'none'
+              li_j.appendChild(div_k)
+              li_j.onclick = ()=>div_k.style.display='block'
+              div_j.appendChild(li_j)
+              if(j.children)
+              {
+                j.children.forEach(k =>
+                {
+                  var li_k = document.createElement('li')
+                  li_k.innerText = k.namec
+                  li_k.style.paddingBottom = 0
+                  var a_k = document.createElement('a')
+                  a_k.href = k.href
+                  a_k.innerText = k.namec
+                  li_k.appendChild(a_k)
+                  div_k.appendChild(li_k)
+                })              
+              }
+            })
+          }               
+        })
+        var showMenu = document.getElementById("showMenu")
+        var showMenuU = document.getElementById("showMenuU")
+        var checkMenu = ''
+        var menuItem = {}
+        var butevg = {}
+        var main = document.getElementById('main')
+
+        function mouseEnter(item)
+        {
+          showMenu.classList.remove('initContent')
+          showMenu.classList.add('hidContent')
+          showMenuU.classList.remove('initContent')
+          showMenuU.classList.add('hidContent')
+          checkMenu = item.name
+          getMenuItem(menuList,checkMenu)
+          if (item.keyname === 'jjfa' || item.keyname === 'rjcp')
+          {
+            butevg = item
+            var button = document.createElement('div')
+            button.className = 'button'
+            var button_a = document.createElement('a')
+            button_a.href = item.href
+            button_a.style.textDecoration='none'
+            button_a.style.color='#4294f2'
+            button.appendChild(button_a)
+            main.appendChild(button)
+            if (checkMenu==='jjfa')
+              button_a.innerHTML = '所有方案&nbsp;>'
+            else
+              button_a.innerHTML = '所有产品&nbsp;>'
+            showMenu.classList.remove('hidContent')
+            showMenu.classList.add('showContent')
+          }
+          if (item.keyname === 'fwzc' || item.keyname === 'gywm')
+          {
+            showMenuU.classList.remove('hidContent')
+            showMenuU.classList.add('showContent')
+          }
+        }
+        function mouseEnterMenu()
+        {
+          showMenu.classList.remove('hidContent')
+          showMenu.classList.add('showContent')
+        }
+        function mouseEnterMenuU()
+        {
+          showMenuU.classList.remove('hidContent')
+          showMenuU.classList.add('showContent')
+        }
+        function mouseMove()
+        {
+          showMenu.classList.remove('showContent')
+          showMenuU.classList.remove('showContent')
+          showMenu.classList.add('hidContent')
+          showMenuU.classList.add('hidContent')
+        }
+        function getMenuItem(menu, name)
+        {        
+          var itemsMenuU = document.getElementById('itemsMenuU')
+          itemsMenuU.innerHTML = ''
+          main.innerHTML = ''
+          var menuItem = menu.filter((_) => _.name === name)[0]?.children
+          menuItem.forEach(i =>
+          {
+            if (name === 'fwzc' || name === 'gywm')
+            {
+              var item = document.createElement('div')
+              item.className = 'item'
+              var item_a = document.createElement('a')
+              item_a.href = i.href
+              item_a.style.textDecoration='none'
+              item_a.innerText = i.namec
+              item.appendChild(item_a)
+              itemsMenuU.appendChild(item)
+            }
+            if(name === 'jjfa' || name === 'rjcp')
+            {
+              var mainItem = document.createElement('div')
+              var mainItemTitle = document.createElement('div')
+              var mainItemTitle_a = document.createElement('a')
+              mainItemTitle_a.href = i.href
+              mainItemTitle_a.style.textDecoration='none'
+              mainItemTitle.appendChild(mainItemTitle_a)
+              var mainConBox = document.createElement('ul')
+              if(name === 'jjfa')
+              {
+                mainItem.className = 'jjfamainItem'
+                mainItemTitle.className = 'mainItemTitle'
+                mainItemTitle_a.innerHTML = i.namec+'&nbsp;&nbsp;>'
+                mainConBox.className = 'mainConBox jjfaBox'
+                if(i.children.length>6)
+                  mainConBox.className = 'mainConBox jjfaBox jjfaheight'
+              }
+              else
+              {
+                mainItem.className = 'rjcpmainItem'
+                mainItemTitle.className = 'mainItemTitle noColor'
+                mainItemTitle_a.innerHTML = i.namec+'&nbsp;&nbsp;'
+                mainConBox.className = 'mainConBox rjcpBox'
+                if(i.children.length>5)
+                  mainConBox.className = 'mainConBox rjcpBox rjcpheight'
+              }
+              i.children.forEach(j=>
+              {
+                var mainContent = document.createElement('li')
+                mainContent.className = "mainContent"
+                var mainContent_a = document.createElement('a')
+                mainContent_a.href = j.href
+                mainContent_a.style.textDecoration='none'
+                mainContent_a.innerHTML = j.namec
+                mainContent.appendChild(mainContent_a) 
+                mainConBox.appendChild(mainContent)
+              })
+              mainItem.appendChild(mainItemTitle)
+              mainItem.appendChild(mainConBox)
+              main.appendChild(mainItem)
+            }
+          })
+        }
+       </script>
+     </body>
+     
+     </html>
